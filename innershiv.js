@@ -38,8 +38,10 @@ window.innerShiv = (function() {
 (function($) {
 	$.fn.cloneShiv = function() {
 		if ( $.support.opacity ) {
+		// not for IE(8, 7, 6)
 			return $(this).clone();
 		} else {
+		// for IE(8, 7, 6)
 			return innerShiv(
 					$("<div></div>")
 					.append(
