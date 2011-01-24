@@ -23,9 +23,18 @@ window.innerShiv = (function() {
 	}
 }());
 
-// https://github.com/5509/innershiv | WTFPL License
-// jQuery plugin
-// this method does not return the original jQuery object
+/*
+ * https://github.com/5509/innershiv | WTFPL License
+ * jQuery plugin
+ *
+ * but in IE this method does not return the original jQuery object
+ * this method is used for only for append(before, after...)
+ * this means events binded jQ'obj(s) are destroyed
+ *
+ * @Usage
+ * <section> hogehoge </section>
+ * $("body").append($("section").cloneShiv());
+ */
 (function($) {
 	$.fn.cloneShiv = function() {
 		if ( $.support.opacity ) {
