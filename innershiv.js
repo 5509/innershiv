@@ -22,3 +22,21 @@ window.innerShiv = (function() {
 		return f;
 	}
 }());
+
+// https://github.com/5509/innershiv | WTFPL License
+// jQuery plugin
+// this method does not return the original jQuery object
+(function($) {
+	$.fn.cloneShiv = function() {
+		if ( $.support.opacity ) {
+			return $(this).clone();
+		} else {
+			return innerShiv(
+					$("<div></div>")
+					.append(
+						$(this)[0].cloneNode(true)
+					).html().replace(/\:/g, '')
+				)
+			}
+	}
+})(jQuery);
